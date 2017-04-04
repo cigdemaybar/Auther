@@ -18,9 +18,14 @@ app.use(session({
   saveUninitialized: false
 }));
 
-app.use('/api', function (req, res, next) {
-  if (!req.session.counter) req.session.counter = 0;
-  console.log('counter', ++req.session.counter);
+// app.use('/api', function (req, res, next) {
+//   if (!req.session.counter) req.session.counter = 0;
+//   console.log('counter', ++req.session.counter);
+//   next();
+// });
+
+app.use(function (req, res, next) {
+  console.log('session', req.session);
   next();
 });
 
@@ -39,5 +44,7 @@ validFrontendRoutes.forEach(function (stateRoute) {
 app.use(require('./statics.middleware'));
 
 app.use(require('./error.middleware'));
+
+
 
 module.exports = app;
