@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import axios from 'axios';
-import {loginUser} from './redux/auth'
+import {loginUser} from '../redux/auth';
 
 /* -----------------    COMPONENT     ------------------ */
 
@@ -64,13 +64,17 @@ class Login extends React.Component {
   onLoginSubmit(event) {
     const { message } = this.props;
     event.preventDefault();
-   console.log(`${message} isn't implemented yet`);
+    console.log(this.props);
+    //this.props.loginUser();
+   //console.log(`${message} isn't implemented yet`);
   }
 }
 
 /* -----------------    CONTAINER     ------------------ */
 
 const mapState = () => ({ message: 'Log in' });
-const mapDispatch = (dispatch) => (loginUser);
+const mapDispatch = (dispatch) => {
+  return onLoginSubmit(this.props.)
+};
 
 export default connect(mapState, mapDispatch)(Login);

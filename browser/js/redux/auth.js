@@ -1,5 +1,4 @@
 import axios from 'axios';
-import users
 
 /* -----------------    ACTIONS     ------------------ */
 
@@ -26,7 +25,7 @@ export default function reducer (user = {}, action) {
 
 /* ------------       DISPATCHERS     ------------------ */
 
-export const loginUser = ( ) => dispatch => {
-  axios.post('/api/login', function(req, res) )
-        .then(res => dispatch(init(res.data)));
+export const loginUser = () => dispatch => {
+  axios.post('/api/login')
+        .then(res => dispatch(login(res.data)));
 };
