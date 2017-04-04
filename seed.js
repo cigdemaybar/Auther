@@ -1,6 +1,6 @@
 'use strict';
 
-var chance = require('chance')(123);
+var chance = require('chance')(123); //generates random data
 var toonAvatar = require('cartoon-avatar');
 var Promise = require('bluebird');
 

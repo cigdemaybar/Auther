@@ -61,6 +61,7 @@ export const addUser = user => dispatch => {
        .catch(err => console.error(`Creating user: ${user} unsuccesful`, err));
 };
 
+
 export const updateUser = (id, user) => dispatch => {
   axios.put(`/api/users/${id}`, user)
        .then(res => dispatch(update(res.data)))
