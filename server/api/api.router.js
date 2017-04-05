@@ -7,7 +7,7 @@ router.use('/users', require('./users/user.router'));
 router.use('/stories', require('./stories/story.router'));
 
 router.post('/login', function (req, res, next) {
-  console.log("WE HIT THE RIGHT POST")
+  console.log("req.body", req.body)
   User.findOne({
     where: req.body
   })
@@ -15,8 +15,9 @@ router.post('/login', function (req, res, next) {
     if (!user) {
       res.sendStatus(401);
     } else {
+      console.log("user", user)
       req.session.userId = user.id;
-      res.sendStatus(204);
+      res.send(user);
     }
   })
   .catch(next);

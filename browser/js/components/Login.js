@@ -62,11 +62,10 @@ class Login extends React.Component {
 
 
   onLoginSubmit(event) {
-    const { message } = this.props;
     event.preventDefault();
-    console.log(this.props);
-    //this.props.loginUser();
-   //console.log(`${message} isn't implemented yet`);
+    //console.log("event", event.target)
+    this.props.login(event.target.email.value, event.target.password.value);
+
   }
 }
 
@@ -74,7 +73,10 @@ class Login extends React.Component {
 
 const mapState = () => ({ message: 'Log in' });
 const mapDispatch = (dispatch) => {
-  return onLoginSubmit(this.props.)
+ return {login: function (email, password) {
+   return dispatch(loginUser(email, password))
+  }
+ }
 };
 
 export default connect(mapState, mapDispatch)(Login);
